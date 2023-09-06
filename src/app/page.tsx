@@ -17,7 +17,6 @@ async function getProducts() {
 
 export default async function HomePage() {
   const { products } = await getProducts();
-  console.log(products);
 
   return (
     <main className={styles.main}>
