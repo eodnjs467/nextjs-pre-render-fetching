@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const data = await getProduct();
-  const params = data.products.map((product) => ({ productId: product.id }));
+  const params = data.products.map((product) => ({ pid: product.id }));
   return params;
 }
 async function getProduct(params) {
@@ -22,8 +22,8 @@ async function getProduct(params) {
 }
 
 async function ProductDetailPage(props) {
-  const { productId } = props.params;
-  const item = await getProduct(productId);
+  const { pid } = props.params;
+  const item = await getProduct(pid);
 
   if (!item) {
     return <p>Loading...</p>;
